@@ -245,6 +245,6 @@ ModelManifest.xml
 .fake/
 
 # Ignore packaged library files.
-wwwroot/libs/
-wwwroot/appScripts/
-typings/
+/src/hero-editor/wwwroot/libs/
+/src/hero-editor/wwwroot/appScripts/
+/src/hero-editor/typings/

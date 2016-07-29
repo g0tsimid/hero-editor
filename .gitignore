@@ -243,3 +243,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+# Ignore packaged library files.
+wwwroot/libs/
+wwwroot/appScripts/
+typings/

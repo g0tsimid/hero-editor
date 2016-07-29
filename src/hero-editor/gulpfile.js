@@ -1,4 +1,4 @@
-﻿/// <binding Clean='clean' />
+﻿/// <binding BeforeBuild='default' Clean='clean' />
 var ts = require('gulp-typescript');
 var gulp = require('gulp');
 var clean = require('gulp-clean');
@@ -24,7 +24,7 @@ gulp.task("scriptsNStyles", () => {
   ], {
     cwd: "node_modules/**"
   })
-      .pipe(gulp.dest("./wwwroot/libs"));
+    .pipe(gulp.dest("./wwwroot/libs"));
 });
 
 var tsProject = ts.createProject('scripts/tsconfig.json');
@@ -33,7 +33,7 @@ gulp.task('ts', function (done) {
   var tsResult = gulp.src([
           "scripts/*.ts"
   ])
-      .pipe(ts(tsProject), undefined, ts.reporter.fullReporter());
+    .pipe(ts(tsProject), undefined, ts.reporter.fullReporter());
   return tsResult.js.pipe(gulp.dest('./wwwroot/appScripts'));
 });
 

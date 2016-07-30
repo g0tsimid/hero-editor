@@ -37,10 +37,19 @@ gulp.task('ts', function (done) {
   return tsResult.js.pipe(gulp.dest('./wwwroot/appScripts'));
 });
 
-gulp.task('watch', ['watch.ts']);
+gulp.task('templates', function () {
+  gulp.src(["scripts/*.html", "scripts/*.css"])
+    .pipe(gulp.dest('./wwwroot/appScripts'));
+});
+
+gulp.task('watch', ['watch.ts', 'watch.templates']);
 
 gulp.task('watch.ts', ['ts'], function () {
   return gulp.watch('scripts/*.ts', ['ts']);
+});
+
+gulp.task('watch.templates', ['templates'], function () {
+  return gulp.watch(['scripts/*.html', 'scripts/*.css'], ['templates']);
 });
 
 gulp.task('default', ['scriptsNStyles', 'watch']);
